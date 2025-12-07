@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four - Analog Style</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Connect Four</h1>
+            <div id="status">Player 1 (Red)'s Turn</div>
+            <div class="controls">
+                <button id="reset-btn">Reset Game</button>
+                <div class="rotate-controls" style="display: flex; gap: 5px; margin-left: 10px;">
+                    <button id="rotate-ccw-btn" title="Rotate Counter-Clockwise">↺</button>
+                    <button id="rotate-cw-btn" title="Rotate Clockwise">↻</button>
+                </div>
+                <button id="settings-btn" style="margin-left: 10px;">⚙️ Settings</button>
+            </div>
+        </header>
+
+        <div class="board-wrapper">
+            <!-- The physical board (overlay) -->
+            <div class="board-overlay"></div>
+            <!-- The layer where coins fall -->
+            <div class="coins-layer" id="coins-layer"></div>
+            <!-- Invisible columns for clicking -->
+            <div class="click-columns" id="click-columns"></div>
+        </div>
+    </div>
+
+    <!-- Winner Overlay -->
+    <div id="winner-overlay" class="hidden">
+        <div class="winner-message">
+            <h2 id="winner-text">Player 1 Wins!</h2>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="hidden">
+        <div class="modal-content">
+            <h2>Settings</h2>
+            
+            <div class="setting-group">
+                <label>Board Size:</label>
+                <div class="size-inputs">
+                    <label>Rows: <input type="number" id="rows-input" value="6" min="4" max="10"></label>
+                    <label>Cols: <input type="number" id="cols-input" value="7" min="4" max="10"></label>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label>Game Rules:</label>
+                <div class="size-inputs">
+                    <label>Max Rotations: <input type="number" id="rotations-input" value="3" min="0" max="10"></label>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label>Player Colors:</label>
+                <div class="color-inputs">
+                    <label>P1: <input type="color" id="p1-color-input" value="#e53935"></label>
+                    <label>P2: <input type="color" id="p2-color-input" value="#fdd835"></label>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="cancel-settings">Cancel</button>
+                <button id="apply-settings">Apply & Restart</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
